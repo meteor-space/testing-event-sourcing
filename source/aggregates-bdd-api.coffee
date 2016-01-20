@@ -45,7 +45,7 @@ class AggregateTest
       @_expectedEvents = expectedEvents
     @_test = =>
       @_sendMessagesThroughApp()
-      expect(@_publishedEvents).to.matchArrayOfStructs @_expectedEvents
+      expect(@_publishedEvents).to.containArrayOfStructs @_expectedEvents
     @_run()
 
   expectToFailWith: (expectedError) ->
