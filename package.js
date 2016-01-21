@@ -12,6 +12,7 @@ Package.onUse(function(api) {
 
   api.use([
     'coffeescript',
+    'ecmascript',
     'underscore',
     'space:base@4.0.0',
     'practicalmeteor:munit@2.1.5'
@@ -28,6 +29,7 @@ Package.onTest(function(api) {
 
   api.use([
     'coffeescript',
+    'ecmascript',
     'check',
     'space:base@4.0.0',
     'space:testing@3.0.1',
