@@ -15,7 +15,7 @@ Package.onUse(function(api) {
     'ecmascript',
     'check',
     'underscore',
-    'space:base@4.0.0',
+    'space:base@4.1.0',
     'practicalmeteor:munit@2.1.5'
   ]);
 
@@ -26,18 +26,18 @@ Package.onUse(function(api) {
 
 });
 
-Package.onTest(function(api) {
-
-  api.use([
-    'coffeescript',
-    'ecmascript',
-    'check',
-    'space:base@4.0.0',
-    'space:testing@3.0.1',
-    'practicalmeteor:munit@2.1.5'
-  ]);
-
-  api.addFiles([
-  ], 'server');
-
-});
+//Package.onTest(function(api) {
+//
+//  api.use([
+//    'coffeescript',
+//    'ecmascript',
+//    'check',
+//    'space:base@4.1.0',
+//    'space:testing@3.0.1',
+//    'practicalmeteor:munit@2.1.5'
+//  ]);
+//
+//  api.addFiles([
+//  ], 'server');
+//
+//});
