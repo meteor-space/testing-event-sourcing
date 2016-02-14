@@ -15,7 +15,7 @@ Package.onUse(function(api) {
     'ecmascript',
     'check',
     'underscore',
-    'space:base@4.1.0',
+    'space:base@4.1.1',
     'practicalmeteor:munit@2.1.5'
   ]);
 
