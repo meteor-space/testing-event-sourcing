@@ -22,16 +22,35 @@ class AggregateTest
       return data
 
   given: (data) ->
-    if _.isArray(data)
-      # We have to add a commit with the historic events
-      changes = events: data, commands: []
-      aggregateId = data[0].sourceId
-      version = data[0].version ? 1
-      @_commitStore.add changes, aggregateId, version - 1
-    else if data instanceof Space.messaging.Command
-      # We just send the command through the app and let
+    if data is undefined then return this
+    commands = []
+    events = []
+    if !_.isArray(data)
+      if data instanceof Space.messaging.Event
+        events.push(data);
+      if data instanceof Space.messaging.Command
+        commands.push(data)
+    else if _.isArray(data)
+      _.each(data, (message) =>
+        if message instanceof Space.messaging.Command
+          commands.push(message)
+        else if message instanceof Space.messaging.Event
+          events.push(message)
+        else
+          throw new Error 'Invalid item in given array'
+      )
+    if events.length > 0
+      # We have to add a commit to setup state
+      changes = { events: events, commands: [] }
+      aggregateId = events[0].sourceId
+      version = events[0].version ? 1
+      @_commitStore.add(changes, aggregateId, version - 1)
+
+    if commands.length > 0
+      # We just send the command/s through the app and let
       # it handle the creation and saving of the aggregate
-      @_messages.push data
+      @_messages = @_messages.concat commands
+
     return this
 
   when: (messages) ->

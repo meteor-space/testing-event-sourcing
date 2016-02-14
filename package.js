@@ -26,18 +26,21 @@ Package.onUse(function(api) {
 
 });
 
-//Package.onTest(function(api) {
-//
-//  api.use([
-//    'coffeescript',
-//    'ecmascript',
-//    'check',
-//    'space:base@4.1.0',
-//    'space:testing@3.0.1',
-//    'practicalmeteor:munit@2.1.5'
-//  ]);
-//
-//  api.addFiles([
-//  ], 'server');
-//
-//});
+Package.onTest(function(api) {
+
+  api.use([
+    'coffeescript',
+    'ecmascript',
+    'check',
+    'space:base@4.1.1',
+    'space:testing@3.0.1',
+    'space:testing-event-sourcing@3.0.0',
+    'space:domain@0.2.1',
+    'practicalmeteor:munit@2.1.5'
+  ]);
+
+  api.addFiles([
+    //'tests/aggregate-test.unit.js'
+  ], 'server');
+
+});
