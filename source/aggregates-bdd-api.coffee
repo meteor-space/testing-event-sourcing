@@ -26,19 +26,15 @@ class AggregateTest
     commands = []
     events = []
     if !_.isArray(data)
-      if data instanceof Space.messaging.Event
-        events.push(data);
-      if data instanceof Space.messaging.Command
-        commands.push(data)
-    else if _.isArray(data)
-      _.each(data, (message) =>
-        if message instanceof Space.messaging.Command
-          commands.push(message)
-        else if message instanceof Space.messaging.Event
-          events.push(message)
-        else
-          throw new Error 'Invalid item in given array'
-      )
+      data = [data]
+    _.each(data, (message) =>
+      if message instanceof Space.messaging.Command
+        commands.push(message)
+      else if message instanceof Space.messaging.Event
+        events.push(message)
+      else
+        throw new Error 'Invalid item in given array'
+    )
     if events.length > 0
       # We have to add a commit to setup state
       changes = { events: events, commands: [] }
