@@ -40,7 +40,7 @@ Package.onTest(function(api) {
   ]);
 
   api.addFiles([
-    //'tests/aggregate-test.unit.js'
+    'tests/aggregate-test.unit.js'
   ], 'server');
 
 });

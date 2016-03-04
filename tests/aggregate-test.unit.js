@@ -27,7 +27,7 @@ describe('AggregateTest', function() {
       app.injector.map('Space.messaging.EventBus').to(this.eventBusMock.object);
       app.injector.map('Space.messaging.CommandBus').to(commandBusStub);
 
-      this.aggregateTest = new AggregateTest(app);
+      this.aggregateTest = new Space.AggregateTest(app);
     });
 
     it('can be called without data', function() {
