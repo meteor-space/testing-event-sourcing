@@ -1,5 +1,10 @@
 Changelog
 =========
 
-### 0.1.0
-Initial release
+### 3.1.0
+#### New Feature
+Test more complex domain models by passing in multiple commands to setup state.
+Prior to this the `given` method was limited to either a single command or event, or an array of events.
+
+### 3.0.0
+Initial release, version based on space:event-sourcing version
