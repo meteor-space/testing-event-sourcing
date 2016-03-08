@@ -1,7 +1,7 @@
 Package.describe({
   summary: 'BDD testing APIs for the space:event-sourcing package',
   name: 'space:testing-event-sourcing',
-  version: '3.0.0',
+  version: '3.1.0',
   git: 'https://github.com/meteor-space/testing-event-sourcing.git',
   debugOnly: true
 });
@@ -15,7 +15,7 @@ Package.onUse(function(api) {
     'ecmascript',
     'check',
     'underscore',
-    'space:base@4.1.0',
+    'space:base@4.1.1',
     'practicalmeteor:munit@2.1.5'
   ]);
 
@@ -26,18 +26,21 @@ Package.onUse(function(api) {
 
 });
 
-//Package.onTest(function(api) {
-//
-//  api.use([
-//    'coffeescript',
-//    'ecmascript',
-//    'check',
-//    'space:base@4.1.0',
-//    'space:testing@3.0.1',
-//    'practicalmeteor:munit@2.1.5'
-//  ]);
-//
-//  api.addFiles([
-//  ], 'server');
-//
-//});
+Package.onTest(function(api) {
+
+  api.use([
+    'coffeescript',
+    'ecmascript',
+    'check',
+    'space:base@4.1.1',
+    'space:testing@3.0.1',
+    'space:testing-event-sourcing@3.1.0',
+    'space:domain@0.2.1',
+    'practicalmeteor:munit@2.1.5'
+  ]);
+
+  api.addFiles([
+    'tests/aggregate-test.unit.js'
+  ], 'server');
+
+});
